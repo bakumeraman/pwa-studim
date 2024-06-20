@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stud'IM</title>
+    <link href="/manifest.json" rel="manifest">
+    <script>
+        window.addEventListener('load', () => {
+            if ("serviceWorker" in navigator) {
+                navigator.serviceWorker.register('/sw.js')
+                }
+            });
+    </script>
+    <link href="/reset.css" rel="stylesheet" type="text/css">
+    <link href="/studim.css" rel="stylesheet" type="text/css">
+    <script src="/index.js" defer></script>
+    <script src="/tabs.js"></script>
+</head>
+<body>
+    <main>
+        <section id="nav-section">
+            <header class="section__header">
+                <div class="logo-container">
+                    <img class="section__logo" alt="pwa im app logo " src="/icons/logo-s.png">
+                    <h1 class="section__title">Stud'IM</h1>
+                </div>
+            </header>
+            <nav class="app-nav">
+                <ul class="nav__list">
+                    <li class="nav__list__item">
+                        <button class="nav__list__button --current-tab" type="button" id="lobbyN01-tab">#&nbsp;Sujets annexes<br><span class="button__details">Vie étudiante, divers</span></button>
+                    </li>
+                    <li class="nav__list__item">
+                        <button class="nav__list__button" type="button" id="lobbyN02-tab">#&nbsp;Cours et devoirs<br><span class="button__details">Entraide, informations</span></button>
+                    </li>
+                    <li class="nav__list__item">
+                        <button class="nav__list__button" type="button" id="lobbyN03-tab">#&nbsp;Projets portfolio<br><span class="button__details">Réalisations web</span></button>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+        <section class="chat-section --current-lobby" id="lobbyN01-panel">
+            <div class="lobby__main">
+                <div class="messages-flux">
+                </div>
+                <form id="userFormLN01" class="user-message" method="post">
+                    <input type="text" id="usrMsgLN01" name="usrMsgLN01" class="user-message__input" placeholder="Votre message ici..." maxlength="500">
+                    <button class="user-message__btn" id="btn-send-message" type="submit"><svg class="btn__picto" aria-hidden="true" width="28" height="23" viewBox="0 0 28 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M27.0902 10.1576L2.06942 0.107997C1.77617 -0.0129297 1.45136 -0.0329207 1.14563 0.0511404C0.8399 0.135201 0.570425 0.318591 0.379217 0.572719C0.182682 0.825052 0.0746942 1.13565 0.0720813 1.45612C0.0694683 1.77659 0.172377 2.08893 0.364771 2.34447L6.8511 11.058C6.9441 11.1902 6.99283 11.3487 6.99023 11.5106C6.98763 11.6725 6.93384 11.8293 6.83665 11.9584L0.29254 20.6472C0.102609 20.9031 0 21.2138 0 21.5331C0 21.8524 0.102609 22.1631 0.29254 22.419C0.427102 22.5994 0.601588 22.7457 0.802181 22.8466C1.00277 22.9474 1.22396 22.9999 1.44823 22.9999C1.63605 23.0022 1.82252 22.9677 1.99719 22.8982L27.0757 12.8777C27.3468 12.7712 27.5799 12.5852 27.7447 12.344C27.9095 12.1028 27.9984 11.8174 28 11.5247C28.0015 11.2321 27.9156 10.9458 27.7534 10.7028C27.5912 10.4598 27.3601 10.2714 27.0902 10.162V10.1576ZM1.53491 1.45859L24.7354 10.7821H8.31016C8.2451 10.567 8.14236 10.3654 8.00679 10.1866L1.53491 1.45859ZM1.44823 21.5288L7.99234 12.8443C8.13758 12.6642 8.24563 12.4569 8.31016 12.2343H24.7499L1.44823 21.5288Z" fill="black"/>
+                        </svg>
+                      </svg><span class="btn__text">Envoyer</span></button>
+                </form>
+            </div>
+        </section>
+        <section class="chat-section" id="lobbyN02-panel">
+            <div class="lobby__main">
+                <div class="messages-flux">
+                </div>
+                <form id="userFormLN02" class="user-message" method="post">
+                    <input type="text" id="usrMsgLN02" name="usrMsgLN02" class="user-message__input" placeholder="Votre message ici..." maxlength="500">
+                    <button class="user-message__btn" id="btn-send-message" type="submit"><svg class="btn__picto" aria-hidden="true" width="28" height="23" viewBox="0 0 28 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M27.0902 10.1576L2.06942 0.107997C1.77617 -0.0129297 1.45136 -0.0329207 1.14563 0.0511404C0.8399 0.135201 0.570425 0.318591 0.379217 0.572719C0.182682 0.825052 0.0746942 1.13565 0.0720813 1.45612C0.0694683 1.77659 0.172377 2.08893 0.364771 2.34447L6.8511 11.058C6.9441 11.1902 6.99283 11.3487 6.99023 11.5106C6.98763 11.6725 6.93384 11.8293 6.83665 11.9584L0.29254 20.6472C0.102609 20.9031 0 21.2138 0 21.5331C0 21.8524 0.102609 22.1631 0.29254 22.419C0.427102 22.5994 0.601588 22.7457 0.802181 22.8466C1.00277 22.9474 1.22396 22.9999 1.44823 22.9999C1.63605 23.0022 1.82252 22.9677 1.99719 22.8982L27.0757 12.8777C27.3468 12.7712 27.5799 12.5852 27.7447 12.344C27.9095 12.1028 27.9984 11.8174 28 11.5247C28.0015 11.2321 27.9156 10.9458 27.7534 10.7028C27.5912 10.4598 27.3601 10.2714 27.0902 10.162V10.1576ZM1.53491 1.45859L24.7354 10.7821H8.31016C8.2451 10.567 8.14236 10.3654 8.00679 10.1866L1.53491 1.45859ZM1.44823 21.5288L7.99234 12.8443C8.13758 12.6642 8.24563 12.4569 8.31016 12.2343H24.7499L1.44823 21.5288Z" fill="black"/>
+                        </svg>
+                      </svg><span class="btn__text">Envoyer</span></button>
+                </form>
+            </div>
+        </section>
+        <section class="chat-section" id="lobbyN03-panel">
+            <div class="lobby__main">
+                <div class="messages-flux">
+                </div>
+                <form id="userFormLN03" class="user-message" method="post">
+                    <input type="text" id="usrMsgLN03" name="usrMsgLN03" class="user-message__input" placeholder="Votre message ici..." maxlength="500">
+                    <button class="user-message__btn" id="btn-send-message" type="submit"><svg class="btn__picto" aria-hidden="true" width="28" height="23" viewBox="0 0 28 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M27.0902 10.1576L2.06942 0.107997C1.77617 -0.0129297 1.45136 -0.0329207 1.14563 0.0511404C0.8399 0.135201 0.570425 0.318591 0.379217 0.572719C0.182682 0.825052 0.0746942 1.13565 0.0720813 1.45612C0.0694683 1.77659 0.172377 2.08893 0.364771 2.34447L6.8511 11.058C6.9441 11.1902 6.99283 11.3487 6.99023 11.5106C6.98763 11.6725 6.93384 11.8293 6.83665 11.9584L0.29254 20.6472C0.102609 20.9031 0 21.2138 0 21.5331C0 21.8524 0.102609 22.1631 0.29254 22.419C0.427102 22.5994 0.601588 22.7457 0.802181 22.8466C1.00277 22.9474 1.22396 22.9999 1.44823 22.9999C1.63605 23.0022 1.82252 22.9677 1.99719 22.8982L27.0757 12.8777C27.3468 12.7712 27.5799 12.5852 27.7447 12.344C27.9095 12.1028 27.9984 11.8174 28 11.5247C28.0015 11.2321 27.9156 10.9458 27.7534 10.7028C27.5912 10.4598 27.3601 10.2714 27.0902 10.162V10.1576ZM1.53491 1.45859L24.7354 10.7821H8.31016C8.2451 10.567 8.14236 10.3654 8.00679 10.1866L1.53491 1.45859ZM1.44823 21.5288L7.99234 12.8443C8.13758 12.6642 8.24563 12.4569 8.31016 12.2343H24.7499L1.44823 21.5288Z" fill="black"/>
+                        </svg>
+                      </svg><span class="btn__text">Envoyer</span></button>
+                </form>
+            </div>
+        </section>
+        <template id="message">
+            <article class="message-item">
+                <figure class="message__author">
+                    <img class="author__avatar responsive-block-img" alt="author avatar" src="/images/avatar-1.jpg" width="72" height="72">
+                    <figcaption class="author__name">Maude</figcaption>
+                </figure>
+                <p class="message__content">Lorem ipsum dolor sit amet consectetur. 😊 </p>
+            </article>
+        </template>
+        <template id="error">
+            <p class="error__content">Impossible de charger les messages</p>
+            <button class="msg-reload">Réessayer</button>
+        </template>
+        <template id="loader">
+            <p class="loader__content">Chargement...</p>
+        </template>
+    </main>
+    <footer id="site-footer">
+        <p class="footer__note"><span class="footer__note--shortened">Practical work : an Instant Messaging Progressive Web App (</span>PWA<span class="footer__note--shortened">) completed</span> by <a title="GitHub profile" href="https://github.com/bakumeraman">bakumeraman</a><span class="footer__note--shortened"> for the University of Strasbourg Licence Professionnelle DWCA 2023-2024</span></p>
+    </footer>
+</body>
+</html>
